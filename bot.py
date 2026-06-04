@@ -1,20 +1,17 @@
 import telebot
-import fal_client
+import requests
 import os
 
-# Tokenni kod ichiga emas, server muhitidan (Variables) o'qiymiz
-TOKEN = os.getenv("TELEGRAM_TOKEN")
-bot = telebot.TeleBot(TOKEN)
-
-@bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message(message.chat.id, "Salom! 3D model uchun ta'rif yozing.")
+# Token va API ni muhitdan o'qiymiz (xavfsiz)
+bot = telebot.TeleBot(os.getenv("TELEGRAM_TOKEN"))
 
 @bot.message_handler(func=lambda message: True)
-def handle_message(message):
-    try:
-        msg = bot.send_message(message.chat.id, "3D model yaratilmoqda, biroz kuting...")
-        handler = fal_client.submit(
+def echo_all(message):
+    # Bu yerda biz murakkab AI emas, 
+    # ochiq va bepul "Public API" lardan foydalanamiz.
+    # Masalan, 3D model emas, balki foydalanuvchiga 
+    # foydali ma'lumot beradigan funksiyalarni ulaymiz.
+    bot.reply_to(message, "Siz yuborgan so'rov qabul qilindi, lekin hozir sinov rejimida!")er = fal_client.submit(
             "fal-ai/tripo-sr",
             arguments={"prompt": message.text},
         )
