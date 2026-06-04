@@ -1,8 +1,6 @@
 import telebot
 import fal_client
-import os
 
-# Kalitlarni o'zgartiring
 bot = telebot.TeleBot("8744906457:AAHFvUOS4Fnfv8GmZAsCGXTwe9gp-BeQmpg")
 
 @bot.message_handler(commands=['start'])
@@ -19,12 +17,4 @@ def handle_message(message):
     except Exception as e:
         bot.reply_to(message, f"Xatolik: {e}")
 
-bot.infinity_polling()f"Xatolik: {str(e)}")
-
-bot.infinity_polling() oling: {model_url}", chat_id=message.chat.id, message_id=msg.message_id)
-    except Exception as e:
-        bot.reply_to(message, f"Xatolik yuz berdi: {str(e)}")
-
-# Botni ishga tushirish
-if __name__ == "__main__":
-    bot.infinity_polling()
+bot.infinity_polling()
